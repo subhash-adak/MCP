@@ -124,15 +124,35 @@ cd MCP
 ```
 
 ### Step 3: Database Setup
+The repository includes a complete schema file with all three databases.
+bash# Import all databases from the unified schema file
+mysql -u root -p < schema.sql
 
-Ensure all three databases are imported and accessible:
+# This will create and populate:
+# - krishnanagar (School Management System)
+# - chinook (Music Store)
+# - sakila (Movie Rental)
+Verify Installation:
+bash# Login to MySQL
+mysql -u root -p
 
-```bash
-# Import databases (if needed)
-mysql -u root -p < dumps/school_erp.sql
-mysql -u root -p < dumps/chinook.sql
-mysql -u root -p < dumps/sakila.sql
-```
+# Check databases
+SHOW DATABASES;
+
+# You should see:
+# - school_erp
+# - chinook
+# - sakila
+
+# Verify table counts
+USE krishnanagar;
+SHOW TABLES;  # Should show ~40 tables
+
+USE chinook;
+SHOW TABLES;  # Should show ~11 tables
+
+USE sakila;
+SHOW TABLES;  # Should show ~23 tables`
 
 ---
 
