@@ -124,35 +124,45 @@ cd MCP
 ```
 
 ### Step 3: Database Setup
-The repository includes a complete schema file with all three databases.
-bash# Import all databases from the unified schema file
-mysql -u root -p < schema.sql
+The repository includes a unified schema file that creates and populates all three sample databases.
 
-# This will create and populate:
-# - krishnanagar (School Management System)
-# - chinook (Music Store)
-# - sakila (Movie Rental)
-Verify Installation:
-bash# Login to MySQL
+Import the databases from the schema file:
+
+```bash
+# Import all databases from the unified schema file
+mysql -u root -p < schema.sql
+```
+
+This will create and populate the following databases:
+
+- `school_erp` (School Management System)
+- `chinook` (Music Store)
+- `sakila` (Movie Rental)
+
+Verify the installation:
+
+```bash
+# Login to MySQL
 mysql -u root -p
 
 # Check databases
 SHOW DATABASES;
+```
 
-# You should see:
-# - school_erp
-# - chinook
-# - sakila
+You should see `school_erp`, `chinook`, and `sakila` listed.
 
-# Verify table counts
-USE krishnanagar;
-SHOW TABLES;  # Should show ~40 tables
+Verify approximate table counts for each database:
+
+```sql
+USE school_erp;
+SHOW TABLES;  -- Should show ~40 tables
 
 USE chinook;
-SHOW TABLES;  # Should show ~11 tables
+SHOW TABLES;  -- Should show ~11 tables
 
 USE sakila;
-SHOW TABLES;  # Should show ~23 tables`
+SHOW TABLES;  -- Should show ~23 tables
+```
 
 ---
 
